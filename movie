@@ -1,0 +1,15 @@
+/* 상영시간 2시간 이상인 영화 */
+select m_name, m_info, m_rtime from movie where m_rtime >= 120;
+
+/* 3월 이후 개봉작 */
+select m_name, m_sdate from movie where m_sdate >= '220301';
+
+/* 예약한 이름, 성별, 좌석갯수, 날짜 */
+select u.u_name, u.u_gender, r.r_count, r.r_date from muser u, reservation r where u.u_no = r.u_no and u.u_gender = 'M';
+select u.u_name, u.u_gender, r.r_count, r.r_date from muser u, reservation r where u.u_no = r.u_no and u.u_gender = 'F';
+
+/* 예약한 유저번호와 영화제목과 감독 */
+select reservation.u_no, movie.m_name, movie.m_dir from movie, reservation where reservation.m_no = movie.m_no;
+
+/* 뷰가 많은 영화 순서 */
+select * from movie order by m_view desc;
